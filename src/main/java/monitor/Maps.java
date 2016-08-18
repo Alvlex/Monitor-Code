@@ -30,6 +30,7 @@ public class Maps {
                     returnMessage = returnMessage + status.print2();
                 }
             }
+            /*
 
                 if(!toMove.isEmpty()){
                     for (int i = 0; i < toMove.size(); i++) {
@@ -39,6 +40,7 @@ public class Maps {
                     }
                     toMove.clear();
                 }
+                */
         }
         returnMessage = returnMessage + "</table>";
         return returnMessage;
@@ -84,8 +86,10 @@ public class Maps {
         synchronized (liveStatus) {
             if (liveStatus.containsKey(hostname)) {
                 liveStatus.replace(hostname, status);
+                System.out.println("Replaced entry");
             } else {
                 liveStatus.put(hostname, status);
+                System.out.println("Added entry");
             }
         }
     }

@@ -12,9 +12,9 @@ public class StatusData {
     static long STALE = 10000;
     private long memUsed;
     private double cpuLoad;
-    private double cpuLoadTime;
+    private long cpuLoadTime;
     public StatusData(String hostName, String startDate, String applicationName,
-                      String continuousDate, long numRequests, String ip, String JRE, long memUsed, double cpuLoad, double cpuLoadTime) {
+                      String continuousDate, long numRequests, String ip, String JRE, long memUsed, double cpuLoad, long cpuLoadTime) {
         hostname = hostName;
         start = startDate;
         name = applicationName;
@@ -40,7 +40,7 @@ public class StatusData {
         String JRE = (String) json.get("jre");
         long memUsed = (long) json.get("memUsed");
         double cpuLoad = (double) json.get("cpuLoad");
-        double cpuLoadTime = (double) json.get("cpuLoadTime");
+        long cpuLoadTime = (long) json.get("cpuLoadTime");
         return new StatusData(hostname, startDate, applicationName, continuousDate, numRequests, ip, JRE, memUsed, cpuLoad, cpuLoadTime);
     }
 

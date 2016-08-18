@@ -24,9 +24,11 @@ public class StatusThread extends Thread {
     public void listen() throws IOException {
         byte[] receiveData = new byte[1024];
         while (true) {
+            System.out.println("Waiting for packet");
             DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
             serverSocket.receive(receivePacket);
             if (receivePacket != null) {
+                System.out.println("Rx packet");
                 parseJSON(receivePacket);
             }
             else {
@@ -45,6 +47,7 @@ public class StatusThread extends Thread {
             StatusData status = StatusData.getStatusObject(json);
             Maps.add(status);
         } catch (Exception e) {
+            System.out.println(sentence + e);
 
         }
     }
